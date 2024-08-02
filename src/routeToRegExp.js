@@ -30,7 +30,7 @@ function routeToRegExp(path, opts) {
         (optional ? '?)?' : ')')
       );
     })
-    .replace(/([/$*])/g, '\\$1');
+    .replace(/([/$*\\])/g, '\\$1'); // Added backslash to the character class
 
   if (opts.ignoreTrailingSlashes) {
     pattern = pattern.replace(/\/+$/, '') + '/*';
